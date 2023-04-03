@@ -61,13 +61,13 @@ router.post("/", (req, res) => {
 
 router.put("/:id", (req, res) => {
   // update a category by its `id` value
-  const updateinfo = {
-    category_name: req.body.category_name,
-    products: [
-      ...req.body.products
-    ]
-  }
-  console.log("body", updateinfo)
+  // const updateinfo = {
+  //   category_name: req.body.category_name,
+  //   products: [
+  //     ...req.body.products
+  //   ]
+  // }
+  // console.log("body", updateinfo)
   Category.update(req.body,{
     where:{
       id: req.params.id

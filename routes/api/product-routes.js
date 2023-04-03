@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   Product.findAll({
-    attributes:["id", "prodcut_name", "price", "stock"],
+    attributes:["id", "product_name", "price", "stock"],
     include: [
       {
         model: Category,
@@ -27,8 +27,8 @@ router.get("/", (req, res) => {
     }
     res.json(data)
   }).catch((err)=>{
-    console.log(error)
-    res.status(500).json(error)
+    console.log(err)
+    res.status(500).json(err)
   })
 });
 
@@ -146,7 +146,7 @@ router.put("/:id", (req, res) => {
     });
 });
 
-router.delete("/:id'", (req, res) => {
+router.delete("/:id", (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
